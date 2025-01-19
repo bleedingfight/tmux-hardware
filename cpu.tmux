@@ -29,6 +29,8 @@ cpu_interpolation=(
   "\#{gpu_temp_icon}"
   "\#{gpu_temp_bg_color}"
   "\#{gpu_temp_fg_color}"
+  "\#{gpu_name}"
+  "\#{host_ip}"
 )
 cpu_commands=(
   "#($CURRENT_DIR/scripts/cpu_percentage.sh)"
@@ -55,6 +57,8 @@ cpu_commands=(
   "#($CURRENT_DIR/scripts/gpu_temp_icon.sh)"
   "#($CURRENT_DIR/scripts/gpu_temp_bg_color.sh)"
   "#($CURRENT_DIR/scripts/gpu_temp_fg_color.sh)"
+  "#($CURRENT_DIR/scripts/gpu_name.sh)"
+  "#($CURRENT_DIR/scripts/host_ip.sh)"
 )
 
 set_tmux_option() {
