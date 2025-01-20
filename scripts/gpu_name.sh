@@ -15,10 +15,10 @@ print_gpu_name() {
     echo "No GPU"
     return
   fi
-  gpu_name=$(echo "$loads" | nvidia-smi | grep -Eo "NVIDIA\s+\w+\s+\w+\s[0-9]+")
-  gpu_nums=$(nvidia-smi --query-gpu=count --format=csv,noheader)
-  if [ ${gpu_nums} -eq 1 ]; then
-    echo ${gpu_name}
+  gpu_name=$(nvidia-smi --query-gpu=gpu_name --format=csv,noheader | sort | uniq)
+  gpu_nums=$(nvidia-smi --query-gpu=count --format=csv,noheader | sort | uniq)
+  if [ "${gpu_nums}" -eq 1 ]; then
+    echo "${gpu_name}"
   else
     echo "${gpu_name}${gpu_nums}"
   fi
@@ -28,3 +28,4 @@ main() {
   print_gpu_name
 }
 main "$@"
+
